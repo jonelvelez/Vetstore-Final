@@ -1,0 +1,111 @@
+<?php include 'header.php'; ?>
+
+<?php 
+
+//Database Connection
+include_once("connections/connection.php");
+$con = connection();
+
+if(isset($_GET['ID'])) {
+
+        $id = $_GET['ID'];
+
+        $blogs_sql = "SELECT * FROM blog_post WHERE blog_id = $id";
+        $blogs_content = $con->query($blogs_sql) or die ($con->error);
+        $blog_content = $blogs_content->fetch_assoc();
+
+        $msg = "";
+        // If upload button is pressed
+        if(isset($_POST['blogSubmit'])){
+
+            // The path to store the uploaded image
+            $target = "upload/".basename($_FILES['featured_img']['name']);
+
+            // Get all the submitted data from theform
+            $blogContent = $_POST['editor1'];
+            $title = $_POST['title'];
+            $snippet = $_POST['snippet'];
+            $featured_img = $_FILES['featured_img']['name'];
+
+            //SQL query
+            $id = $_GET['ID'];
+
+            $sql = "UPDATE `blog_post` SET `blog_content` = '$blogContent', `title` = '$title', `snippet` = '$snippet', `featured_image` = '$featured_img' WHERE blog_id = '$id'";
+
+            $con->query($sql) or die ($con->error);
+
+            // Now let's move the uploaded image into the folder: upload
+            if(move_uploaded_file($_FILES['featured_img']['tmp_name'], $target)) {
+                $msg = "Image uploaded successfully";
+            }else{
+                $msg = "There was a problem uploading image";
+            }
+
+
+            $page = $_SERVER['REQUEST_URI'];
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="'.$page.'";';
+            echo '</script>';
+
+    }
+
+
+}
+
+
+
+
+?>
+
+<!-- Loading -->
+<div class="col-lg-12">
+  <div class="loading">
+    <img src="images/loading.gif" alt="">
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+
+
+<?php include 'sidebar.php'; ?>
+
+<!-- Create a blog content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="" method="post" id="create-blog" enctype="multipart/form-data">
+                <div class="form-group row">
+                <label class="col-md-4" for="">Description</label>
+                    <div class="col-lg-12">
+                        <textarea class="form-control ckeditor" cols="30" rows="10" id="editor1" name="editor1" ><?php echo $blog_content['blog_content'] ?></textarea>
+                        <label for="">Title</label><br>
+                        <input name="title" type="text" value="<?php echo $blog_content['title'] ?>"><br>
+                        <label for="">Snippet</label><br>
+                        <input name="snippet" type="text" value="<?php echo $blog_content['snippet'] ?>"><br>
+                        <label for="">Featured Image</label><br>
+                        <input name="featured_img" type="file"><br>
+                        <img src="upload/<?php echo $blog_content['featured_image'] ?>" width="300px" alt=""><br>
+                        <input class="btn btn-primary mt-3" name="blogSubmit" type="submit" method="POST" value="Update">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script> 
+    CKEDITOR.replace( 'editor1', {
+        height: 300,
+        filebrowserUploadUrl: "upload.php",
+        filebrowserUploadMethod: "form"
+    }); 
+</script>
+
+<script src='js/loading.js'></script>
+<?php include 'footer.php'; ?>
