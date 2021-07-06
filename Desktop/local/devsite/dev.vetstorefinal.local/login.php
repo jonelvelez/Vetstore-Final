@@ -30,6 +30,7 @@ if(isset($_POST['login'])){
         $_SESSION['UserLogin'] = $row['first_name'];
         $_SESSION['Userlname'] = $row['last_name'];
         $_SESSION['UserEmail'] = $row['email'];
+        $_SESSION['UserImage'] = $row['user_image'];
         $_SESSION['Access'] = $row['access'];
   
 

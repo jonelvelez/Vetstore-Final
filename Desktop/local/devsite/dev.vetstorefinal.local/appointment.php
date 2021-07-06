@@ -116,22 +116,22 @@ if(isset($_POST['regSubmit'])){
                                     <p>Date: <input type="text" id="datepicker"></p>
                                </div> -->
                                 <div style="overflow-x: auto;">
-                                        <table class='table table-bordered text-center'>
+                                    <table class='table table-bordered text-center'>
                                             <thead>
-                                            <tr>
-                                                <th scope='col' colspan='6'>card number: 0<h2>Anti - Parasitics</h2></th>
-                                            </tr>
-                                        </thead>
-                                        <thead class='thead-dark'>
-                                            <tr>
-                                                <th scope='col'>Date</th>
-                                                <th scope='col'>Weight</th>
-                                                <th scope='col'>Against</th>
-                                                <th scope='col'>Manufacturer</th>
-                                                <th scope='col'>LDT Number</th>
-                                                <th scope='col'>Veterinarian</th>
-                                            </tr>
-                                        </thead>
+                                                <tr>
+                                                    <th scope='col' colspan='6'>card number: 0<h2>Anti - Parasitics</h2></th>
+                                                </tr>
+                                            </thead>
+                                            <thead class='thead-dark'>
+                                                <tr>
+                                                    <th scope='col'>Date</th>
+                                                    <th scope='col'>Weight</th>
+                                                    <th scope='col'>Against</th>
+                                                    <th scope='col'>Manufacturer</th>
+                                                    <th scope='col'>LDT Number</th>
+                                                    <th scope='col'>Veterinarian</th>
+                                                </tr>
+                                            </thead>
                                         <tbody>
                                             <tr>
                                     
@@ -196,8 +196,8 @@ if(isset($_POST['regSubmit'])){
                                             </tr>
                                         </tbody>
                                     </table>
-                                        </div>
-                                <div class='table-wrapper'>
+                                </div>
+                                <div class='table-wrapper' style="overflow-x: auto;">
                                     <table class='table table-bordered text-center'>
                                         <thead>
                                             <tr>

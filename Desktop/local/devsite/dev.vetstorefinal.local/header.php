@@ -131,7 +131,10 @@
           <?php } else{ ?>
 
             <li class="nav-item">
-               <span><a href="logout.php"> Logout </a></span>
+              <span><a href="logout.php"> Logout </a></span>
+            </li>
+            <li>
+              <img src="<?php echo $_SESSION['UserImage']; ?>" alt="">
             </li>
 
           <?php } ?>
@@ -157,7 +160,9 @@
 
             <div class="card-body">
 
-                <form action="" method="post">
+                <form action="" method="post" >
+
+                    <input name="userimage" type="file">
                     <div class="form-outline mt-3">
                         <input class="form-control" type="text" name="firstname" id="firstname formControlDefault" required>
                         <label class="form-label" for="firstname">First Name</label>

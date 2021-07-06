@@ -14,15 +14,16 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
     $client = "client";
+    $userImage = $_POST['userimage'];
 
     $check = mysqli_query($con, "SELECT * FROM user_reg WHERE email = '$email'");
     $checkrows = mysqli_num_rows($check);
 
     if($checkrows > 0){
-        echo "Email enter was already registered";
+        echo "Email enter is already registered";
     } else {
  
-        $sql = "INSERT INTO `user_reg`(`first_name`, `last_name`, `birth_day`, `address`, `phone_num`, `gender`, `email`, `password`, `access`) VALUES ('$fname', '$lname', '$birthday', '$address', '$phoneNum', '$gender', '$email', '$password', '$client')";
+        $sql = "INSERT INTO `user_reg`(`first_name`, `last_name`, `birth_day`, `address`, `phone_num`, `gender`, `email`, `password`, `user_image`, `access`) VALUES ('$fname', '$lname', '$birthday', '$address', '$phoneNum', '$gender', '$email', '$password', '$userImage', '$client')";
     
         $con->query($sql) or die ($con->error);
 

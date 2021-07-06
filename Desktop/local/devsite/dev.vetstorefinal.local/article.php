@@ -24,6 +24,7 @@ if (isset($_GET['ID'])) {
         <div class="col-lg-8 shadow-lg bg-white rounded">
             <?php
                 if (isset($_GET['ID'])) {
+                    echo "<img src='upload/$row[featured_image]'>";
                     echo $row['blog_content'];
                 } else {
                     echo "<p>Please choose article first</p>";

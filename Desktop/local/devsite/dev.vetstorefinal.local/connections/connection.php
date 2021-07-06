@@ -5,7 +5,7 @@
         $host = "localhost";
         $username = "root";
         $password = "";
-        $database = "vetstore_db";
+        $database = "vetstorefinal_db";
 
         $con = new mysqli($host, $username, $password, $database);
 

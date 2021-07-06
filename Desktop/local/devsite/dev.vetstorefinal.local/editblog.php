@@ -38,7 +38,7 @@ if(isset($_GET['ID'])) {
             if(move_uploaded_file($_FILES['featured_img']['tmp_name'], $target)) {
                 $msg = "Image uploaded successfully";
             }else{
-                $msg = "There was a problem uploading image";
+                $msg = "There's a problem on uploading image";
             }
 
 

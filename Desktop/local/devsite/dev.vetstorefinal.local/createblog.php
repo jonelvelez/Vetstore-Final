@@ -29,7 +29,7 @@ if(isset($_POST['blogSubmit'])){
     if(move_uploaded_file($_FILES['featured_img']['tmp_name'], $target)) {
         $msg = "Image uploaded successfully";
     }else{
-        $msg = "There was a problem uploading image";
+        $msg = "There has a problem uploading image";
     }
 
 
@@ -59,7 +59,7 @@ if(isset($_POST['blogSubmit'])){
 
 <!-- Sidebar -->
 <?php include 'sidebar.php'; ?>
-
+<!-- Office Branch -->
 <!-- Create a blog content -->
 <div class="container">
     <div class="row">

@@ -6,5 +6,5 @@ function selectcard() {
 include_once("connections/connection.php");
 $con = connection();
 
-
+}
 ?>

@@ -58,6 +58,8 @@ $row = $blog_post->fetch_assoc();
     </div>
 </div>
 
+<!-- sample -->
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12 p-5 text-center">
